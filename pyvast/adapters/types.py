@@ -1,0 +1,3 @@
+from typing import Protocol, Any, Optional
+class VastAdapter(Protocol):
+    async def fetch(self, ctx: Any, *, session: Optional[Any]=None) -> str: ...

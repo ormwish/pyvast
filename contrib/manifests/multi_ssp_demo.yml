@@ -1,0 +1,40 @@
+
+id: demo
+strategy: waterfall
+adapters:
+  adfox:
+    spec:
+      base_uri: "https://yandex.ru/ads/adfox/{{ self.owner_id }}/getCodeTest"
+      method: GET
+      query:
+        p1: "{{ self.site_id }}"
+        p2: "{{ self.placement_id }}"
+        ext_duid: "[CACHE_BUST]"
+      headers:
+        X-Adfox-S2S-Key: "{{ self.s2s_key }}"
+        X-Real-IP: "${device.ip}"
+    config:
+      timeout: 2.0
+  leto_rambler:
+    spec:
+      base_uri: "http://ssp.rambler.ru/vapirs"
+      method: GET
+      query:
+        wl: "rambler"
+        pad_id: "{{ self.pad_id }}"
+        block_id: "{{ self.block_id }}"
+        ip: "${device.ip}"
+    config:
+      timeout: 2.0
+endpoints:
+  - id: adfox_ssp
+    name: "Adfox SSP"
+    adapter_id: adfox
+  - id: leto_rambler_ssp
+    name: "Rambler"
+    adapter_id: leto_rambler
+groups:
+  - id: g1
+    priority: 1
+    mode: parallel
+    endpoints: [adfox_ssp, leto_rambler_ssp]

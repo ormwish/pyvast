@@ -1,0 +1,22 @@
+{
+  "request_id": "31b7dd09-b66c-4635-9d27-447a8abeffd5",
+  "ts_inserted": "2025-07-23 17:48:35",
+  "event_type": "CHANNELS_SWITCH",
+  "device_mac_address": "fc039f21e1dd",
+  "channel_from_id": 5150,
+  "channel_to_id": 5410,
+  "media_id_from": 74,
+  "media_id_to": 2,
+  "date": "2025-07-23",
+  "ext": "{}",
+  "device": {
+    "ip": "91.240.123.86",
+    "ifa": "AAAA-BBBB"
+  },
+  "self": {
+    "owner_id": 721500,
+    "site_id": "dfiza",
+    "placement_id": "hyxp",
+    "s2s_key": "532..."
+  }
+}
