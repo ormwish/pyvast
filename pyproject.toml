@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "Python VAST (Video Ad Serving Template) library"
 authors = ["Your Name <your.email@example.com>"]
 readme = "README.md"
-package-mode = false
+package-mode = true
 packages = [{ include = "pyvast"}]
 
 [tool.poetry.dependencies]
@@ -55,4 +55,3 @@ disallow_untyped_defs = true
 
 [tool.poetry.scripts]
 pyvast = "pyvast.cli:app"
-diff_apply = "scripts/apply_diff"

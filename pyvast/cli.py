@@ -23,7 +23,7 @@ ad = typer.Typer(help="Adapter playground"); app.add_typer(ad, name="adapter")
 @ad.command("test")
 def adapter_test(adapter_id: str,
                  manifest: pathlib.Path = typer.Option(..., exists=True),
-                 ctx_file: pathlib.Path = typer.Option(..., exists=True),
+                 ctx_file: pathlib.Path = typer.Option(..., "--ctx-file", "--ctx", exists=True),
                  url_only: bool = typer.Option(False, "--url-only", "-u")):
     import aiohttp
     ctx = yaml.safe_load(ctx_file.read_text())
