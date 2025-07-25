@@ -34,6 +34,7 @@ flake8 = "*"
 mypy = "*"
 mkdocs-material = "*"
 mkdocstrings = { extras = ["python"], version = "*" }
+pre-commit = "^4.2.0"
 
 [tool.setuptools.packages.find]
 where = ["."]
