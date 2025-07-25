@@ -16,6 +16,7 @@ python = "^3.11"
 rich-click = "^1.8.9"
 mkdocs-material = "^9.6.15"
 mkdocstrings = "^0.30.0"
+typer = "^0.16.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.0"
