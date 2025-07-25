@@ -1,0 +1,43 @@
+From 1b6453892473a467d073 Mon Sep 17 00:00:00 2001
+Subject: docs: MkDocs skeleton + mermaid diagram
+---
+ mkdocs.yml              | 10 ++++++++++
+ docs/index.md           |  2 ++
+ docs/cli.md             |  3 +++
+ docs/architecture.md    |  6 ++++++
+ 4 files changed, 21 insertions(+)
+ create mode 100644 mkdocs.yml
+ create mode 100644 docs/index.md
+ create mode 100644 docs/cli.md
+ create mode 100644 docs/architecture.md
++++ /dev/null
++@@
++site_name: PyVAST
++theme:
++  name: material
++  features: [navigation.instant]
++repo_url: https://github.com/ormwish/pyvast
++plugins: [search, mkdocstrings]
++
++++ /dev/null
++@@
++# PyVAST
++Async VAST toolchain: DSL, adapters, OTEL, CLI.
++
++++ /dev/null
++@@
++```console
++$ pyvast --help
++```
++
++++ /dev/null
++@@
++```mermaid
++sequenceDiagram
++  participant CLI
++  participant Executor
++  participant Adapter
++  CLI->>Executor: run manifest
++  Executor->>Adapter: fetch()
++  Adapter-->>Executor: Inline VAST
++```

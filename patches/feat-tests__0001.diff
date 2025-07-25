@@ -1,0 +1,33 @@
+From d4735e3a265e16eee94f Mon Sep 17 00:00:00 2001
+Subject: test(core): add basic loader & macro tests
+---
+ pyvast/tests/__init__.py     |  0
+ pyvast/tests/test_loader.py  | 12 ++++++++++++
+ pyvast/tests/test_macro.py   |  8 ++++++++
+ 3 files changed, 20 insertions(+)
+ create mode 100644 pyvast/tests/__init__.py
+ create mode 100644 pyvast/tests/test_loader.py
+ create mode 100644 pyvast/tests/test_macro.py
++++ /dev/null
++@@
++from pathlib import Path
++from pyvast.manifest.loader import ManifestLoader
++
++def test_manifest_load(tmp_path: Path):
++    yaml = """id: demo
++adapters: {mock: {spec: {base_uri: 'http://x'}, config: {}}}
++endpoints: [{id: e1, name: test, adapter_id: mock}]
++groups: [{id: g1, endpoints: [e1]}]
++"""
++    p = tmp_path / "m.yml"
++    p.write_text(yaml)
++    assert ManifestLoader(p).model.id == "demo"
++
++++ /dev/null
++@@
++from pyvast.utils.macro import interpolate_macros
++
++def test_cache_bust():
++    u1 = interpolate_macros("https://t/?[CACHE_BUST]", {})
++    u2 = interpolate_macros("https://t/?[CACHE_BUST]", {})
++    assert u1 != u2

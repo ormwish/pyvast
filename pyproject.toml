@@ -19,12 +19,15 @@ mkdocstrings = "^0.30.0"
 typer = "^0.16.0"
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^7.0"
+pytest = "^8.2"
 pytest-cov = "*"
+ruff = "*"
 black = "*"
 isort = "*"
 flake8 = "*"
 mypy = "*"
+mkdocs-material = "*"
+mkdocstrings = { extras = ["python"], version = "*" }
 
 [tool.setuptools.packages.find]
 where = ["."]
@@ -43,3 +46,7 @@ python_version = "3.11"
 warn_return_any = true
 warn_unused_configs = true
 disallow_untyped_defs = true
+
+[tool.poetry.scripts]
+pyvast = "pyvast.cli:app"
+diff_apply = "scripts/apply_diff"
