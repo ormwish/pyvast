@@ -1,0 +1,3 @@
+site_name: PyVAST
+theme: { name: material, features: [navigation.instant] }
+plugins: [search, mkdocstrings]

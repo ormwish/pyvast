@@ -1,0 +1,9 @@
+site_name: PyVAST
+theme:
+  name: material
+  features:
+    - navigation.instant
+repo_url: https://github.com/ormwish/pyvast
+plugins:
+  - search
+  - mkdocstrings

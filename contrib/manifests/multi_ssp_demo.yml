@@ -4,14 +4,14 @@ strategy: waterfall
 adapters:
   adfox:
     spec:
-      base_uri: "https://yandex.ru/ads/adfox/{{ self.owner_id }}/getCodeTest"
+      base_uri: "https://yandex.ru/ads/adfox/${self.owner_id}/getCodeTest"
       method: GET
       query:
-        p1: "{{ self.site_id }}"
-        p2: "{{ self.placement_id }}"
+        p1: "${self.site_id}"
+        p2: "${self.placement_id}"
         ext_duid: "[CACHE_BUST]"
       headers:
-        X-Adfox-S2S-Key: "{{ self.s2s_key }}"
+        X-Adfox-S2S-Key: "${self.s2s_key}"
         X-Real-IP: "${device.ip}"
     config:
       timeout: 2.0
@@ -21,8 +21,8 @@ adapters:
       method: GET
       query:
         wl: "rambler"
-        pad_id: "{{ self.pad_id }}"
-        block_id: "{{ self.block_id }}"
+        pad_id: "${self.pad_id}"
+        block_id: "${self.block_id}"
         ip: "${device.ip}"
     config:
       timeout: 2.0
