@@ -45,7 +45,8 @@ PATTERN = re.compile(
 #  Встроенные функции-генераторы
 
 def _cache_bust() -> str:
-    return str(int(time.time() * 1000))
+    # Use time + random to ensure uniqueness even in rapid succession
+    return str(int(time.time() * 1000)) + str(random.randint(100, 999))
 
 
 _BUILTIN: Dict[str, Any] = {
